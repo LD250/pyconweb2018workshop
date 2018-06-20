@@ -29,6 +29,7 @@ Setup
 
 
 Additional setup information
+----------------------------
 
 [Install python environment](http://docs.python-guide.org/en/latest/dev/virtualenvs/)
 
