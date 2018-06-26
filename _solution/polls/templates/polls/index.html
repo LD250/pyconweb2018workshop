@@ -1,0 +1,26 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+<body>
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li>
+            <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
+            <span>Author: {{ question.questioninfo.author }}</span>
+            <span>Value Weight: {{ question.questioninfo.value }}</span>
+            <br/>
+            <span style="margin-left: 25px">Choices:
+                {% for choice in question.all_choices %}
+                    <b>Text: {{ choice.text }} Votes {{choice.votes}}</b>
+                    <br/>
+
+                {% endfor %}
+            </span>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+</body>
